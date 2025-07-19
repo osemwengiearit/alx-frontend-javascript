@@ -8,17 +8,17 @@ interface Student {
 
 // Create two students
 const student1: Student = {
-  firstName: "John",
-  lastName: "Doe",
+  firstName: "Osemwengie Arit",
+  lastName: "Bright",
   age: 20,
-  location: "Accra",
+  location: "Lagos",
 };
 
 const student2: Student = {
-  firstName: "Jane",
-  lastName: "Smith",
+  firstName: "Solomon",
+  lastName: "Uwe",
   age: 22,
-  location: "Kumasi",
+  location: "Delta",
 };
 
 // Array of students
@@ -60,29 +60,29 @@ interface Teacher {
 
 // Create Teacher
 const teacher1: Teacher = {
-  firstName: "Adam",
-  lastName: "Salim",
+  firstName: "Efe",
+  lastName: "Bright"
   fullTimeEmployee: true,
   yearsOfExperience: 40,
-  location: "Accra",
+  location: "Lagos",
   contract: false,
 };
 
 const teacher2: Teacher = {
-  firstName: "Maame",
-  lastName: "Yaa",
+  firstName: "Zainab",
+  lastName: "Musa",
   fullTimeEmployee: true,
   yearsOfExperience: 30,
-  location: "Kumasi",
+  location: "Lagos",
   contract: false,
 };
 
 const teacher3: Teacher = {
   firstName: "Robert",
-  lastName: "Boateng",
+  lastName: "Isang",
   fullTimeEmployee: true,
   yearsOfExperience: 45,
-  location: "Accra",
+  location: "Lagos",
   contract: false,
 };
 
@@ -100,11 +100,11 @@ interface Director {
 
 // Create Directors
 const director1: Director = {
-  firstName: "Kofi",
-  lastName: "Amoah",
+  firstName: "Moses",
+  lastName: "Ameh",
   fullTimeEmployee: true,
   numberOfReports: 17,
-  location: "Accra",
+  location: "Lagos",
 };
 
 // Define the interface for the function

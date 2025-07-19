@@ -8,15 +8,15 @@ interface Student {
 
 // Create two students
 const student1: Student = {
-  firstName: 'John',
-  lastName: 'Doe',
-  age: 20,
+  firstName: 'Osemwengie Arit',
+  lastName: 'Bright',
+  age: 31,
   location: 'Nigeria',
 };
 
 const student2: Student = {
   firstName: 'Jane',
-  lastName: 'Smith',
+  lastName: 'Arukwu',
   age: 22,
   location: 'Lagos',
 };
@@ -60,8 +60,8 @@ interface Teacher {
 
 // Create Teacher
 const teacher1: Teacher = {
-  firstName: 'Osemwengie Bright',
-  lastName: 'Arit',
+  firstName: 'Osemwengie Arit',
+  lastName: 'Bright',
   fullTimeEmployee: true,
   yearsOfExperience: 40,
   location: 'Nigeria',
@@ -69,17 +69,17 @@ const teacher1: Teacher = {
 };
 
 const teacher2: Teacher = {
-  firstName: 'James',
-  lastName: 'Meekness',
+  firstName: 'Muoyo',
+  lastName: 'Babalola',
   fullTimeEmployee: true,
   yearsOfExperience: 30,
-  location: 'Port Harcourt',
+  location: 'Lagos',
   contract: false,
 };
 
 const teacher3: Teacher = {
-  firstName: 'Pelumi',
-  lastName: 'Damilola',
+  firstName: 'Okon',
+  lastName: 'Akpan',
   fullTimeEmployee: true,
   yearsOfExperience: 45,
   location: 'Lagos',
@@ -100,11 +100,11 @@ interface Director {
 
 // Create Directors
 const director1: Director = {
-  firstName: 'Efe',
-  lastName: 'Bright',
+  firstName: 'Kofi',
+  lastName: 'Ameh',
   fullTimeEmployee: true,
   numberOfReports: 17,
-  location: 'Lagos',
+  location: 'Abuja',
 };
 
 // Define the interface for the function
@@ -188,3 +188,51 @@ function createEmployee(salary: number | string): Teacher | Director {
   }
   return new Director();
 }
+
+// Function to create specific employee types
+function isDirector(employee: Director | Teacher): employee is Director {
+  return (employee as Director).workDirectorTasks !== undefined;
+}
+function executeWork(employee: Director | Teacher): string {
+  if (isDirector(employee)) {
+    return employee.workDirectorTasks();
+  }
+  return employee.workTeacherTasks();
+}
+// Define a string literal type
+type Subjects = 'Math' | 'History';
+
+// Define the function that accepts only values of type Subjects
+function teachClass(todayClass: Subjects): string {
+  if (todayClass === 'Math') {
+    return 'Teaching Math';
+  } else {
+    return 'Teaching History';
+  }
+}
+
+/// <reference path="./crud.d.ts" />
+
+import { RowID, RowElement } from './interface';
+import * as CRUD from './crud.js';
+
+// Create the initial row object
+const row: RowElement = {
+  firstName: 'Guillaume',
+  lastName: 'Salva',
+};
+
+// Insert the row and save the returned RowID
+const newRowID: RowID = CRUD.insertRow(row);
+
+// Create an updated row object
+const updatedRow: RowElement = {
+  ...row,
+  age: 23,
+};
+
+// Update the row in the "DB"
+CRUD.updateRow(newRowID, updatedRow);
+
+// Delete the row
+CRUD.deleteRow(newRowID);
